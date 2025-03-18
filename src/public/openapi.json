@@ -1,0 +1,74 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Content Moderation API",
+      "version": "1.0.0",
+      "description": "API documentation for content moderation service"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000/api/v1",
+        "description": "Local development server"
+      }
+    ],
+    "paths": {
+      "/moderation/post/{id}": {
+        "get": {
+          "summary": "Retrieve a post by ID",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "The ID of the post"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Post retrieved successfully"
+            },
+            "404": {
+              "description": "Post not found"
+            }
+          }
+        }
+      },
+      "/moderation/user/{id}/profile": {
+        "get": {
+          "summary": "Retrieve a user profile by ID",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "The ID of the user"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "User profile retrieved successfully"
+            },
+            "404": {
+              "description": "User not found"
+            }
+          }
+        }
+      },
+      "/moderation/content/flags/stats": {
+        "get": {
+          "summary": "Retrieve statistics on flagged content",
+          "responses": {
+            "200": {
+              "description": "Flagged content statistics"
+            }
+          }
+        }
+      }
+    }
+  }
